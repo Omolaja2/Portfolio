@@ -6,6 +6,7 @@
     <title>Omolaja Mamun Babatunde - Backend Developer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        
         * {
             margin: 0;
             padding: 0;
@@ -430,6 +431,21 @@
             margin-bottom: 4rem;
             text-align: center;
         }
+            /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed; width:60px; height:60px; bottom:20px; right:20px;
+      background:#25d366; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center;
+      box-shadow:2px 2px 10px rgba(0,0,0,.3); animation:bounce 2s infinite; z-index:1000;
+    }
+    .whatsapp-float i { font-size:28px; }
+    @keyframes bounce {0%,20%,50%,80%,100%{transform:translateY(0)}40%{transform:translateY(-10px)}60%{transform:translateY(-5px)}}
+
+    /* Contact Section */
+    .contact-box { text-align:center; padding:2rem; background:var(--secondary); border-radius:15px; box-shadow:var(--shadow); }
+    .contact-box p { color:var(--text-light); margin:.5rem 0; }
+    .contact-box a { color:var(--primary); text-decoration:none; font-weight:600; }
+    
+
 
         .extras-list {
             display: flex;
@@ -789,8 +805,25 @@
         </ul>
 
     </section>
+      <!-- Contact Section -->
+  <section id="contact" class="contact section">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-box">
+      <p><i class="fas fa-map-marker-alt"></i> Lagos State, Nigeria</p>
+      <p><i class="fas fa-phone"></i> <a href="tel:+2349071995394">+2349071995394</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:Omolajababatunde149@gmail.com">Omolajababatunde149@gmail.com</a></p>
+      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/omolaja-mamun-49b98634b" target="_blank">LinkedIn</a></p>
+      <p><i class="fab fa-github"></i> <a href="https://github.com/Omolaja2" target="_blank">GitHub</a></p>
+    </div>
+  </section>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/2349071995394" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
     <script>
+        
         // Mobile menu toggle
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
