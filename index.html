@@ -68,6 +68,10 @@
             Contact
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
           </a></li>
+          <li><a href="#certificates" class="hover:text-indigo-500 transition-colors duration-300 relative group">
+            Certificates
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
+          </a></li>
         </ul>
         
         <!-- Theme Toggle & Mobile Menu Button -->
@@ -313,6 +317,77 @@
     </div>
   </section>
 
+    <!-- Certificates Section -->
+  <section id="certificates" class="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto">
+      <!-- Heading -->
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          My <span class="gradient-text">Certificates</span>
+        </h2>
+        <div class="w-24 h-1 gradient-bg mx-auto rounded-full mb-8"></div>
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          A showcase of my professional certificates and achievements.
+        </p>
+      </div>
+
+      <!-- Certificate Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Certificate Card -->
+        <div class="group relative overflow-hidden rounded-xl shadow-lg bg-white dark:bg-gray-800" data-aos="zoom-in" data-aos-delay="100">
+          <img src="image/cert1.png" alt="Certificate 1" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-500">
+            <a href="image/cert1.png" target="_blank" class="px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
+              View Full
+            </a>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-xl shadow-lg bg-white dark:bg-gray-800" data-aos="zoom-in" data-aos-delay="200">
+          <img src="image/cert2.png" alt="Certificate 2" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-500">
+            <a href="image/cert2.png" target="_blank" class="px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
+              View Full
+            </a>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-xl shadow-lg bg-white dark:bg-gray-800" data-aos="zoom-in" data-aos-delay="300">
+          <img src="image/cert3.png" alt="Certificate 3" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-500">
+            <a href="image/cert3.png" target="_blank" class="px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
+              View Full
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- View CV Section -->
+<section id="cv" class="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800 text-center">
+  <div class="max-w-3xl mx-auto" data-aos="fade-up">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+      Want to know more? <span class="gradient-text">View My CV</span>
+    </h2>
+    <div class="w-24 h-1 gradient-bg mx-auto rounded-full mb-8"></div>
+    <p class="text-lg text-gray-600 dark:text-gray-300 mb-10">
+      A detailed look into my projects, education, and experience.
+    </p>
+    <a href="files/Mamun_Omolaja_CV.pdf" target="_blank" class="px-8 py-4 text-lg font-medium rounded-full shadow-lg gradient-bg text-white hover:scale-105 transform transition">
+      📄 View CV
+    </a>
+  </div>
+</section>
+
+<!-- Sticky CV Button -->
+<a href="files/Mamun_Omolaja_CV.pdf" target="_blank" class="fixed bottom-6 right-6 bg-indigo-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-indigo-700 transition hidden sm:flex items-center gap-2 z-50">
+  📄 View CV
+</a>
+
+
+
   <!-- Footer -->
   <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
     <div class="max-w-6xl mx-auto text-center">
@@ -388,7 +463,7 @@
 
     // Typing animation
     const typingText = document.getElementById('typingText');
-    const texts = ['Backend Developer', 'C# Developer', 'ASP.NET Core Expert', 'API Architect'];
+    const texts = ['Backend Developer', 'C# Developer', 'ASP.NET Core Expert', 'Sofware Eng'];
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
