@@ -3,242 +3,354 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mamun Omolaja | Backend Developer</title>
+  <title>Mamun Omolaja | Full-Stack Developer</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    .gradient-bg {
+    * {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    body {
+      overflow-x: hidden;
+    }
+    
+    .gradient-primary {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
+    
     .gradient-text {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .glass-morphism {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    .gradient-border {
+      position: relative;
+      background: white;
+      border-radius: 1.5rem;
     }
+    
+    .dark .gradient-border {
+      background: rgb(17, 24, 39);
+    }
+    
+    .gradient-border::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 1.5rem;
+      padding: 2px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+    
+    .glass {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .dark .glass {
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid rgba(75, 85, 99, 0.3);
+    }
+    
     .floating {
       animation: float 6s ease-in-out infinite;
     }
+    
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-20px); }
     }
-    .typing-animation::after {
+    
+    .blob {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      animation: blob 7s ease-in-out infinite;
+    }
+    
+    @keyframes blob {
+      0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+      25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+      50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+      75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+    }
+    
+    .shimmer {
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+    
+    .typing::after {
       content: '|';
       animation: blink 1s infinite;
     }
+    
     @keyframes blink {
       0%, 50% { opacity: 1; }
       51%, 100% { opacity: 0; }
     }
+    
+    .progress-animate {
+      animation: progress 2s ease-out forwards;
+    }
+    
+    @keyframes progress {
+      from { width: 0%; }
+    }
+    
+    .glow {
+      box-shadow: 0 0 40px rgba(102, 126, 234, 0.4);
+    }
+    
+    .dark .glow {
+      box-shadow: 0 0 40px rgba(102, 126, 234, 0.3);
+    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 to-blue-50 text-gray-900 dark:from-gray-900 dark:to-blue-900 dark:text-gray-100 transition-all duration-500">
+<body class="bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 text-gray-900 dark:text-gray-100 transition-colors duration-500">
   
-  <!-- Navbar -->
-  <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 transition-all duration-500" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center py-4 md:py-6">
+      <div class="flex justify-between items-center h-20">
         <!-- Logo -->
-        <div class="font-bold text-xl md:text-2xl gradient-text">
+        <a href="#home" class="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity">
           Mamun.O
-        </div>
+        </a>
         
-        <!-- Desktop Menu -->
-        <ul class="hidden md:flex space-x-8 font-medium">
-          <li><a href="#home" class="hover:text-indigo-500 transition-colors duration-300 relative group">
-            Home
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
-          </a></li>
-          <li><a href="#about" class="hover:text-indigo-500 transition-colors duration-300 relative group">
-            About
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
-          </a></li>
-          <li><a href="#skills" class="hover:text-indigo-500 transition-colors duration-300 relative group">
-            Skills
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
-          </a></li>
-          <li><a href="#contact" class="hover:text-indigo-500 transition-colors duration-300 relative group">
-            Contact
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
-          </a></li>
-          <li><a href="#certificates" class="hover:text-indigo-500 transition-colors duration-300 relative group">
-            Certificates
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300"></span>
-          </a></li>
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <li><a href="#home" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">Home</a></li>
+          <li><a href="#about" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">About</a></li>
+          <li><a href="#skills" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">Skills</a></li>
+          <li><a href="#certificates" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">Certificates</a></li>
+          <li><a href="#contact" class="px-4 py-2 rounded-lg text-sm font-semibold gradient-primary text-white hover:opacity-90 transition-all">Contact</a></li>
         </ul>
         
-        <!-- Theme Toggle & Mobile Menu Button -->
-        <div class="flex items-center space-x-4">
-          <button id="darkToggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
-            <i class="fas fa-moon text-lg"></i>
+        <!-- Right Actions -->
+        <div class="flex items-center gap-2">
+          <button id="darkToggle" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+            <i class="fas fa-moon"></i>
           </button>
-          <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
-            <i class="fas fa-bars text-lg"></i>
+          <button id="menuBtn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+            <i class="fas fa-bars"></i>
           </button>
         </div>
       </div>
       
       <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden md:hidden glass-morphism rounded-lg mx-4 mb-4 overflow-hidden">
-        <div class="px-6 py-4 space-y-3">
-          <a href="#home" class="block py-2 text-lg hover:text-indigo-500 transition-colors duration-300">Home</a>
-          <a href="#about" class="block py-2 text-lg hover:text-indigo-500 transition-colors duration-300">About</a>
-          <a href="#skills" class="block py-2 text-lg hover:text-indigo-500 transition-colors duration-300">Skills</a>
-          <a href="#contact" class="block py-2 text-lg hover:text-indigo-500 transition-colors duration-300">Contact</a>
+      <div id="mobileMenu" class="hidden md:hidden pb-4">
+        <div class="glass rounded-2xl p-4 space-y-2 shadow-xl">
+          <a href="#home" class="block px-4 py-3 rounded-lg text-sm font-semibold hover:bg-white/50 dark:hover:bg-gray-800/50 transition-all">Home</a>
+          <a href="#about" class="block px-4 py-3 rounded-lg text-sm font-semibold hover:bg-white/50 dark:hover:bg-gray-800/50 transition-all">About</a>
+          <a href="#skills" class="block px-4 py-3 rounded-lg text-sm font-semibold hover:bg-white/50 dark:hover:bg-gray-800/50 transition-all">Skills</a>
+          <a href="#certificates" class="block px-4 py-3 rounded-lg text-sm font-semibold hover:bg-white/50 dark:hover:bg-gray-800/50 transition-all">Certificates</a>
+          <a href="#contact" class="block px-4 py-3 rounded-lg text-sm font-semibold gradient-primary text-white text-center">Contact</a>
         </div>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-    <!-- Background Elements -->
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 dark:bg-purple-600 rounded-full mix-blend-multiply dark:mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 dark:bg-blue-600 rounded-full mix-blend-multiply dark:mix-blend-multiply filter blur-xl opacity-70 animate-pulse delay-1000"></div>
+  <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-16 relative overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-300 dark:bg-purple-900 opacity-20 blob blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-300 dark:bg-blue-900 opacity-20 blob blur-3xl" style="animation-delay: 2s;"></div>
     </div>
     
-    <div class="relative z-10 max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
-      <!-- Profile Image -->
-      <div class="floating mb-8">
-        <div class="relative inline-block">
-          <img src="image/image.png" alt="Mamun" class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full border-4 border-white dark:border-gray-700 shadow-2xl object-cover">
-          <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white dark:border-gray-700 animate-ping"></div>
-          <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white dark:border-gray-700"></div>
+    <div class="relative z-10 max-w-6xl mx-auto text-center" data-aos="fade-up">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-gray-200 dark:border-gray-700 mb-8">
+        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+        <span class="text-sm font-medium">Available for new projects</span>
+      </div>
+      
+      <!-- Profile -->
+      <div class="mb-8">
+        <div class="relative inline-block floating">
+          <div class="absolute inset-0 gradient-primary rounded-full blur-2xl opacity-50"></div>
+          <img src="image/image.png" alt="Mamun Omolaja" class="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full border-4 border-white dark:border-gray-900 shadow-2xl object-cover">
+          <div class="absolute -bottom-2 -right-2 w-10 h-10 gradient-primary rounded-full border-4 border-white dark:border-gray-900 flex items-center justify-center">
+            <i class="fas fa-check text-white text-sm"></i>
+          </div>
         </div>
       </div>
       
-      <!-- Main Heading -->
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
-        <span class="block">Omolaja</span>
-        <span class="gradient-text block">Mamun Babatunde</span>
-      </h1>
-      
-      <!-- Subtitle with Typing Animation -->
-      <div class="mb-8">
-        <p class="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 typing-animation" id="typingText">
-          Backend Developer
+      <!-- Heading -->
+      <div class="space-y-4 mb-8">
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight">
+          <span class="block mb-2">Omolaja</span>
+          <span class="gradient-text block">Mamun Babatunde</span>
+        </h1>
+        <p class="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300 typing" id="typingText">
+          Full-Stack Developer
         </p>
       </div>
       
       <!-- Description -->
-      <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed px-4">
-        Passionate about building robust, scalable backend solutions with C# & ASP.NET Core. 
-        Turning ideas into powerful applications that make a difference.
+      <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
+        Passionate about building robust, scalable full-stack solutions. From crafting elegant user interfaces 
+        to developing powerful backend systems with C# & ASP.NET Core, I turn ideas into complete applications 
+        that make a difference.
       </p>
       
       <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-        <a href="#contact" class="w-full sm:w-auto px-8 py-4 gradient-bg text-white font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-          Get In Touch
+        <a href="#contact" class="group w-full sm:w-auto px-8 py-4 gradient-primary text-white font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2">
+          <span>Let's Talk</span>
+          <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
         </a>
-        <a href="#about" class="w-full sm:w-auto px-8 py-4 border-2 border-gray-300 dark:border-gray-600 hover:border-indigo-500 rounded-full font-semibold transition-all duration-300 hover:shadow-lg">
-          Learn More
+        <a href="#about" class="w-full sm:w-auto px-8 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 font-bold rounded-xl hover:shadow-lg transition-all duration-300">
+          View Work
         </a>
       </div>
       
       <!-- Social Links -->
-      <div class="flex justify-center space-x-6">
-        <a href="https://github.com/Omolaja2" target="_blank" class="group p-4 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110">
-          <i class="fab fa-github text-xl text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors duration-300"></i>
+      <div class="flex justify-center gap-4">
+        <a href="https://github.com/Omolaja2" target="_blank" class="group w-12 h-12 flex items-center justify-center rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-900 dark:hover:border-white transition-all hover:scale-110">
+          <i class="fab fa-github text-xl"></i>
         </a>
-        <a href="https://www.linkedin.com/in/omolaja-mamun-49b98634b" target="_blank" class="group p-4 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110">
-          <i class="fab fa-linkedin-in text-xl text-blue-600 group-hover:text-blue-700 transition-colors duration-300"></i>
+        <a href="https://www.linkedin.com/in/omolaja-mamun-49b98634b" target="_blank" class="group w-12 h-12 flex items-center justify-center rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-600 transition-all hover:scale-110">
+          <i class="fab fa-linkedin-in text-xl text-blue-600"></i>
         </a>
       </div>
     </div>
     
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <div class="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center">
-        <div class="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-2 animate-ping"></div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block">
+      <div class="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center p-2 animate-bounce">
+        <div class="w-1.5 h-1.5 bg-gray-600 dark:bg-gray-400 rounded-full"></div>
       </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-gray-800/50">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-          About <span class="gradient-text">Me</span>
+  <section id="about" class="py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-20" data-aos="fade-up">
+        <div class="inline-block px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-sm font-bold mb-4">
+          ABOUT ME
+        </div>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black mb-6">
+          Crafting Complete <span class="gradient-text">Digital Solutions</span>
         </h2>
-        <div class="w-24 h-1 gradient-bg mx-auto rounded-full mb-8"></div>
+        <div class="w-24 h-2 gradient-primary mx-auto rounded-full"></div>
       </div>
       
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div data-aos="fade-right" data-aos-delay="200">
-          <h3 class="text-2xl md:text-3xl font-bold mb-6">Crafting Digital Solutions</h3>
-          <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-            I'm a passionate Backend Developer with expertise in C# and ASP.NET Core. I specialize in building secure, 
-            scalable applications that solve real-world problems. My journey in software development is driven by 
-            curiosity and a constant desire to learn and grow.
-          </p>
-          <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-            When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
-            or sharing knowledge with the developer community.
-          </p>
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <!-- Left Column - Story -->
+        <div class="space-y-8" data-aos="fade-right">
+          <div class="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p>
+              I'm a passionate <strong class="text-gray-900 dark:text-white">Full-Stack Developer</strong> with strong expertise in both frontend and backend technologies. 
+              Starting with a solid foundation in C# and ASP.NET Core for building secure, scalable backend systems, 
+              I've expanded my skills to include modern frontend frameworks and responsive design, allowing me to 
+              create complete, end-to-end solutions.
+            </p>
+            <p>
+              My journey in software development is driven by curiosity and a constant desire to learn and grow. 
+              Whether it's architecting robust APIs, designing intuitive user interfaces, or optimizing database 
+              performance, I approach every challenge with enthusiasm and dedication.
+            </p>
+          </div>
           
+          <!-- Stats Cards -->
           <div class="grid grid-cols-2 gap-6">
-            <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-lg">
-              <div class="text-2xl font-bold gradient-text mb-2">3+</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/50 dark:to-indigo-950/50 p-8 rounded-2xl border-2 border-blue-100 dark:border-blue-900/50">
+              <div class="text-5xl font-black gradient-text mb-2">3+</div>
+              <div class="text-sm font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Years Experience</div>
             </div>
-            <div class="text-center p-4 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-700 rounded-lg">
-              <div class="text-2xl font-bold gradient-text mb-2">31+</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
+            <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/50 dark:to-pink-950/50 p-8 rounded-2xl border-2 border-purple-100 dark:border-purple-900/50">
+              <div class="text-5xl font-black gradient-text mb-2">31+</div>
+              <div class="text-sm font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Projects Completed</div>
             </div>
           </div>
         </div>
         
-        <div data-aos="fade-left" data-aos-delay="400">
-          <div class="relative">
-            <div class="absolute inset-0 gradient-bg rounded-2xl transform rotate-6"></div>
-            <div class="relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
-              <h4 class="text-xl font-bold mb-6">Technical Expertise</h4>
-              <div class="space-y-4">
-                <div>
-                  <div class="flex justify-between mb-2">
-                    <span class="font-medium">C# & .NET</span>
-                    <span class="text-sm text-gray-500">95%</span>
-                  </div>
-                  <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div class="gradient-bg h-2 rounded-full" style="width: 95%"></div>
-                  </div>
+        <!-- Right Column - Skills -->
+        <div class="lg:sticky lg:top-28" data-aos="fade-left">
+          <div class="gradient-border p-8 md:p-10 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-40 h-40 gradient-primary opacity-10 rounded-full blur-3xl"></div>
+            <h3 class="text-2xl font-bold mb-8 relative">Technical Expertise</h3>
+            
+            <div class="space-y-6 relative">
+              <!-- C# & .NET -->
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <span class="font-bold">C# & .NET</span>
+                  <span class="text-sm font-bold text-gray-500 dark:text-gray-400">95%</span>
                 </div>
-                <div>
-                  <div class="flex justify-between mb-2">
-                    <span class="font-medium">ASP.NET Core</span>
-                    <span class="text-sm text-gray-500">90%</span>
-                  </div>
-                  <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div class="gradient-bg h-2 rounded-full" style="width: 90%"></div>
-                  </div>
+                <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                  <div class="h-full gradient-primary rounded-full" style="width: 95%"></div>
                 </div>
-                <div>
-                  <div class="flex justify-between mb-2">
-                    <span class="font-medium">SQL Server</span>
-                    <span class="text-sm text-gray-500">80%</span>
-                  </div>
-                  <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div class="gradient-bg h-2 rounded-full" style="width: 80%"></div>
-                  </div>
+              </div>
+              
+              <!-- ASP.NET Core -->
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <span class="font-bold">ASP.NET Core</span>
+                  <span class="text-sm font-bold text-gray-500 dark:text-gray-400">90%</span>
                 </div>
-                <div>
-                  <div class="flex justify-between mb-2">
-                    <span class="font-medium">API Development</span>
-                    <span class="text-sm text-gray-500">90%</span>
-                  </div>
-                  <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div class="gradient-bg h-2 rounded-full" style="width: 90%"></div>
-                  </div>
+                <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                  <div class="h-full gradient-primary rounded-full" style="width: 90%"></div>
+                </div>
+              </div>
+              
+              <!-- Frontend -->
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <span class="font-bold">Frontend (HTML/CSS/JS)</span>
+                  <span class="text-sm font-bold text-gray-500 dark:text-gray-400">85%</span>
+                </div>
+                <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                  <div class="h-full gradient-primary rounded-full" style="width: 85%"></div>
+                </div>
+              </div>
+              
+              <!-- SQL Server -->
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <span class="font-bold">SQL Server</span>
+                  <span class="text-sm font-bold text-gray-500 dark:text-gray-400">80%</span>
+                </div>
+                <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                  <div class="h-full gradient-primary rounded-full" style="width: 80%"></div>
+                </div>
+              </div>
+              
+              <!-- API Development -->
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <span class="font-bold">API Development</span>
+                  <span class="text-sm font-bold text-gray-500 dark:text-gray-400">90%</span>
+                </div>
+                <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                  <div class="h-full gradient-primary rounded-full" style="width: 90%"></div>
                 </div>
               </div>
             </div>
@@ -249,66 +361,182 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="py-20 lg:py-32 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-          My <span class="gradient-text">Skills</span>
+  <section id="skills" class="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-gray-50/50 to-transparent dark:via-gray-900/50 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-20" data-aos="fade-up">
+        <div class="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-bold mb-4">
+          EXPERTISE
+        </div>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black mb-6">
+          What I Do <span class="gradient-text">Best</span>
         </h2>
-        <div class="w-24 h-1 gradient-bg mx-auto rounded-full mb-8"></div>
+        <div class="w-24 h-2 gradient-primary mx-auto rounded-full"></div>
       </div>
       
+      <!-- Skills Grid - Bento Box Layout -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Backend Development -->
+        <div class="card-hover group bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-lg border-2 border-gray-100 dark:border-gray-800 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+          <div class="absolute top-0 right-0 w-32 h-32 gradient-primary opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity"></div>
+          <div class="relative">
+            <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i class="fas fa-server text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Backend Development</h3>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Building robust server-side applications with C#, ASP.NET Core, and RESTful APIs</p>
+          </div>
+        </div>
+        
+        <!-- Frontend Development -->
+        <div class="card-hover group bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-lg border-2 border-gray-100 dark:border-gray-800 relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+          <div class="absolute top-0 right-0 w-32 h-32 gradient-primary opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity"></div>
+          <div class="relative">
+            <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i class="fas fa-laptop-code text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Frontend Development</h3>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Creating responsive, modern user interfaces with HTML, CSS, JavaScript, and modern frameworks</p>
+          </div>
+        </div>
+        
+        <!-- Database Design -->
+        <div class="card-hover group bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-lg border-2 border-gray-100 dark:border-gray-800 relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+          <div class="absolute top-0 right-0 w-32 h-32 gradient-primary opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity"></div>
+          <div class="relative">
+            <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i class="fas fa-database text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Database Design</h3>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Designing efficient database schemas and optimizing queries for performance</p>
+          </div>
+        </div>
+        
+        <!-- API Development -->
+        <div class="card-hover group bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-lg border-2 border-gray-100 dark:border-gray-800 relative overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+          <div class="absolute top-0 right-0 w-32 h-32 gradient-primary opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity"></div>
+          <div class="relative">
+            <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i class="fas fa-code text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">API Development</h3>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Creating RESTful APIs and integrating third-party services seamlessly</p>
+          </div>
+        </div>
+        
+        <!-- Responsive Design -->
+        <div class="card-hover group bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-lg border-2 border-gray-100 dark:border-gray-800 relative overflow-hidden" data-aos="fade-up" data-aos-delay="500">
+          <div class="absolute top-0 right-0 w-32 h-32 gradient-primary opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity"></div>
+          <div class="relative">
+            <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i class="fas fa-mobile-alt text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Responsive Design</h3>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Building mobile-first, responsive applications that work beautifully on all devices</p>
+          </div>
+        </div>
+        
+        <!-- Full-Stack Architecture -->
+        <div class="card-hover group bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-lg border-2 border-gray-100 dark:border-gray-800 relative overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+          <div class="absolute top-0 right-0 w-32 h-32 gradient-primary opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity"></div>
+          <div class="relative">
+            <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i class="fas fa-layer-group text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Full-Stack Architecture</h3>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Architecting complete solutions from database to UI with best practices</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section id="certificates" class="py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-20" data-aos="fade-up">
+        <div class="inline-block px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-bold mb-4">
+          ACHIEVEMENTS
+        </div>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black mb-6">
+          Certificates & <span class="gradient-text">Credentials</span>
+        </h2>
+        <div class="w-24 h-2 gradient-primary mx-auto rounded-full mb-6"></div>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          A showcase of my professional certificates and achievements.
+        </p>
+      </div>
+
+      <!-- Certificates Grid -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="group p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
-          <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <i class="fas fa-server text-white text-2xl"></i>
+        <!-- Certificate 1 -->
+        <div class="group relative overflow-hidden rounded-3xl shadow-2xl bg-white dark:bg-gray-900 border-2 border-gray-100 dark:border-gray-800" data-aos="zoom-in" data-aos-delay="100">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="image/cert1.png" alt="Certificate 1" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
           </div>
-          <h3 class="text-xl font-bold mb-3">Backend Development</h3>
-          <p class="text-gray-600 dark:text-gray-300">Building robust server-side applications with C# and ASP.NET Core</p>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500">
+            <a href="image/cert1.png" target="_blank" class="px-6 py-3 gradient-primary text-white rounded-xl font-bold hover:scale-105 transition-transform transform translate-y-4 group-hover:translate-y-0">
+              View Certificate
+            </a>
+          </div>
         </div>
-        
-        <div class="group p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
-          <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <i class="fas fa-database text-white text-2xl"></i>
+
+        <!-- Certificate 2 -->
+        <div class="group relative overflow-hidden rounded-3xl shadow-2xl bg-white dark:bg-gray-900 border-2 border-gray-100 dark:border-gray-800" data-aos="zoom-in" data-aos-delay="200">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="image/cert2.png" alt="Certificate 2" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
           </div>
-          <h3 class="text-xl font-bold mb-3">Database Design</h3>
-          <p class="text-gray-600 dark:text-gray-300">Designing efficient database schemas and optimizing queries</p>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500">
+            <a href="image/cert2.png" target="_blank" class="px-6 py-3 gradient-primary text-white rounded-xl font-bold hover:scale-105 transition-transform transform translate-y-4 group-hover:translate-y-0">
+              View Certificate
+            </a>
+          </div>
         </div>
-        
-        <div class="group p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
-          <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <i class="fas fa-code text-white text-2xl"></i>
+
+        <!-- Certificate 3 -->
+        <div class="group relative overflow-hidden rounded-3xl shadow-2xl bg-white dark:bg-gray-900 border-2 border-gray-100 dark:border-gray-800" data-aos="zoom-in" data-aos-delay="300">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="image/cert3.png" alt="Certificate 3" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
           </div>
-          <h3 class="text-xl font-bold mb-3">API Development</h3>
-          <p class="text-gray-600 dark:text-gray-300">Creating RESTful APIs and integrating third-party services</p>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500">
+            <a href="image/cert3.png" target="_blank" class="px-6 py-3 gradient-primary text-white rounded-xl font-bold hover:scale-105 transition-transform transform translate-y-4 group-hover:translate-y-0">
+              View Certificate
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-gray-800/50">
+  <section id="contact" class="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-gray-50/50 to-transparent dark:via-gray-900/50 overflow-hidden">
     <div class="max-w-4xl mx-auto text-center">
       <div data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-          Let's <span class="gradient-text">Connect</span>
+        <!-- Section Header -->
+        <div class="inline-block px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full text-sm font-bold mb-4">
+          GET IN TOUCH
+        </div>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black mb-6">
+          Let's Build Something <span class="gradient-text">Amazing</span>
         </h2>
-        <div class="w-24 h-1 gradient-bg mx-auto rounded-full mb-8"></div>
-        <p class="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+        <div class="w-24 h-2 gradient-primary mx-auto rounded-full mb-8"></div>
+        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
           Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a href="mailto:omolajababatunde149@gmail.com" class="group flex items-center space-x-3 px-8 py-4 gradient-bg text-white font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-            <i class="fas fa-envelope"></i>
+        <!-- Contact Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-12">
+          <a href="mailto:omolajababatunde149@gmail.com" class="group w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 gradient-primary text-white font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+            <i class="fas fa-envelope text-lg"></i>
             <span>Send Email</span>
           </a>
-          <a href="https://www.linkedin.com/in/omolaja-mamun-49b98634b" target="_blank" class="group flex items-center space-x-3 px-8 py-4 border-2 border-gray-300 dark:border-gray-600 hover:border-indigo-500 rounded-full font-semibold transition-all duration-300 hover:shadow-lg">
-            <i class="fab fa-linkedin-in"></i>
+          <a href="https://www.linkedin.com/in/omolaja-mamun-49b98634b" target="_blank" class="group w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <i class="fab fa-linkedin-in text-lg"></i>
             <span>LinkedIn</span>
           </a>
-           <a href="https://github.com/Omolaja2" target="_blank" class="group flex items-center space-x-3 px-8 py-4 border-2 border-gray-300 dark:border-gray-600 hover:border-indigo-500 rounded-full font-semibold transition-all duration-300 hover:shadow-lg">
-            <i class="fab fa-github"></i>
+          <a href="https://github.com/Omolaja2" target="_blank" class="group w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <i class="fab fa-github text-lg"></i>
             <span>GitHub</span>
           </a>
         </div>
@@ -316,190 +544,148 @@
     </div>
   </section>
 
-    <!-- Certificates Section -->
-  <section id="certificates" class="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
-    <div class="max-w-6xl mx-auto">
-      <!-- Heading -->
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-          My <span class="gradient-text">Certificates</span>
-        </h2>
-        <div class="w-24 h-1 gradient-bg mx-auto rounded-full mb-8"></div>
-        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          A showcase of my professional certificates and achievements.
-        </p>
+  <!-- CV Section -->
+  <section id="cv" class="py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="max-w-4xl mx-auto" data-aos="fade-up">
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-600 p-12 md:p-16 shadow-2xl">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;"></div>
+        </div>
+        
+        <div class="relative text-center text-white">
+          <div class="w-20 h-20 bg-white/20 backdrop-blur-lg rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/30">
+            <i class="fas fa-file-alt text-4xl"></i>
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
+            View My Resume
+          </h2>
+          <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+            A detailed look into my projects, education, and experience.
+          </p>
+          <a href="files/Mamun_Omolaja_CV.pdf" target="_blank" class="inline-flex items-center gap-3 px-10 py-5 bg-white text-purple-600 font-black rounded-xl shadow-xl hover:bg-gray-100 hover:scale-105 transform transition-all duration-300 text-lg">
+            <i class="fas fa-download"></i>
+            <span>View My CV</span>
+          </a>
+        </div>
       </div>
-
-      <!-- Certificate Grid -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Certificate Card -->
-        <div class="group relative overflow-hidden rounded-xl shadow-lg bg-white dark:bg-gray-800" data-aos="flip-up" data-aos-delay="100">
-          <img src="image/cert1.png" alt="Certificate 1" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-500">
-          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-500">
-            <a href="image/cert1.png" target="_blank" class="px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
-              View Full
-            </a>
-          </div>
-        </div>
-
-        <div class="group relative overflow-hidden rounded-xl shadow-lg bg-white dark:bg-gray-800" data-aos="flip-up" data-aos-delay="200">
-          <img src="image/cert2.png" alt="Certificate 2" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-500">
-          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-500">
-            <a href="image/cert2.png" target="_blank" class="px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
-              View Full
-            </a>
-          </div>
-        </div>
-
-        <div class="group relative overflow-hidden rounded-xl shadow-lg bg-white dark:bg-gray-800" data-aos="flip-up" data-aos-delay="300">
-          <img src="image/cert3.png" alt="Certificate 3" class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-500">
-          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-500">
-            <a href="image/cert3.png" target="_blank" class="px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
-              View Full
-            </a>
-          </div>
-
+    </div>
   </section>
 
-<!-- View CV Section -->
-<section id="cv" class="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800 text-center">
-  <div class="max-w-3xl mx-auto" data-aos="fade-up">
-    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-      Want to know more? <span class="gradient-text">View My CV</span>
-    </h2>
-    <div class="w-24 h-1 gradient-bg mx-auto rounded-full mb-8"></div>
-    <p class="text-lg text-gray-600 dark:text-gray-300 mb-10">
-      A detailed look into my projects, education, and experience.
-    </p>
-    <a href="files/Mamun_Omolaja_CV.pdf" target="_blank" class="px-8 py-4 text-lg font-medium rounded-full shadow-lg gradient-bg text-white hover:scale-105 transform transition">
-      📄 View CV
-    </a>
-  </div>
-</section>
-
-<!-- Sticky CV Button -->
-<a href="files/Mamun_Omolaja_CV.pdf" target="_blank" class="fixed bottom-6 right-6 bg-indigo-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-indigo-700 transition hidden sm:flex items-center gap-2 z-50">
-  📄 View CV
-</a>
-
-
-
   <!-- Footer -->
-  <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
-    <div class="max-w-6xl mx-auto text-center">
-      <p class="text-gray-400">© 2024 Omolaja Mamun Babatunde. All rights reserved.</p>
+  <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t-2 border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-2xl font-bold gradient-text">Mamun.O</div>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">© 2024 Omolaja Mamun Babatunde. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="https://github.com/Omolaja2" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/omolaja-mamun-49b98634b" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
+            <i class="fab fa-linkedin-in text-blue-600"></i>
+          </a>
+          <a href="mailto:omolajababatunde149@gmail.com" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <script>
-    // Dark mode toggle
-    const darkToggle = document.getElementById('darkToggle');
-    const body = document.body;
-    const html = document.documentElement;
+<!-- Floating CV Button -->
+<a href="files/Mamun_Omolaja_CV.pdf" target="_blank"
+  class="fixed bottom-8 right-8 px-5 py-3 gradient-primary text-white rounded-full shadow-2xl glow flex items-center gap-2 transition-all duration-300 hover:scale-110 z-50 hidden sm:flex">
+  
+  <i class="fas fa-download text-lg"></i>
+  <span class="font-medium">View My CV</span>
+</a>
 
-    darkToggle.addEventListener('click', () => {
-      html.classList.toggle('dark');
-      const isDark = html.classList.contains('dark');
-      const icon = darkToggle.querySelector('i');
-      icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-      localStorage.setItem('darkMode', isDark);
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+      easing: 'ease-out-cubic'
     });
 
-    // Load saved theme
-    if (localStorage.getItem('darkMode') === 'true') {
-      html.classList.add('dark');
-      darkToggle.querySelector('i').className = 'fas fa-sun';
-    }
+// Force Dark Mode Only
+const darkToggle = document.getElementById('darkToggle');
+const html = document.documentElement;
 
-    // Mobile menu toggle
+// Always enable dark mode
+html.classList.add('dark');
+
+// Change icon to sun permanently or hide button
+darkToggle.querySelector('i').className = 'fas fa-sun';
+
+// Disable toggle functionality completely
+darkToggle.addEventListener('click', () => {
+  // Do nothing — light mode is disabled
+});
+
+    // Mobile Menu
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
 
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
-      const icon = menuBtn.querySelector('i');
-      icon.className = mobileMenu.classList.contains('hidden') ? 'fas fa-bars' : 'fas fa-times';
+      menuBtn.querySelector('i').className = mobileMenu.classList.contains('hidden') ? 'fas fa-bars' : 'fas fa-times';
     });
 
     // Close mobile menu on link click
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
         menuBtn.querySelector('i').className = 'fas fa-bars';
       });
     });
 
-    // Smooth scrolling for anchor links
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    anchorLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('glass', 'shadow-xl');
+      } else {
+        navbar.classList.remove('glass', 'shadow-xl');
+      }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        if (targetSection) {
-          const offsetTop = targetSection.offsetTop - 80;
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
           window.scrollTo({
-            top: offsetTop,
+            top: target.offsetTop - 80,
             behavior: 'smooth'
           });
         }
       });
     });
 
-    // Navbar background on scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('bg-white/90', 'dark:bg-gray-900/90', 'backdrop-blur-md', 'shadow-lg');
-      } else {
-        navbar.classList.remove('bg-white/90', 'dark:bg-gray-900/90', 'backdrop-blur-md', 'shadow-lg');
+    // Typing Effect
+    const typingElement = document.getElementById('typingText');
+    const text = 'Full-Stack Developer';
+    let index = 0;
+
+    function typeText() {
+      if (index < text.length) {
+        typingElement.textContent = text.substring(0, index + 1);
+        index++;
+        setTimeout(typeText, 100);
       }
-    });
-
-    // Typing animation
-    const typingText = document.getElementById('typingText');
-    const texts = ['Backend Developer', 'C# Developer', 'ASP.NET Core Expert', 'Sofware Eng'];
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeWriter() {
-      const currentText = texts[textIndex];
-      
-      if (isDeleting) {
-        typingText.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        typingText.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
-      }
-
-      let typeSpeed = isDeleting ? 100 : 150;
-
-      if (!isDeleting && charIndex === currentText.length) {
-        typeSpeed = 2000;
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % texts.length;
-        typeSpeed = 500;
-      }
-
-      setTimeout(typeWriter, typeSpeed);
     }
 
-    // Start typing animation
-    setTimeout(typeWriter, 1000);
-  </script>
-  
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ 
-      duration: 800, 
-      once: true,
-      offset: 100
-    });
+    setTimeout(() => {
+      typingElement.textContent = '';
+      typeText();
+    }, 500);
   </script>
 </body>
 </html>
